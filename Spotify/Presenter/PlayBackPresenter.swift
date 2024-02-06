@@ -27,9 +27,9 @@ final class PlayBackPresenter {
     }
 
     func startPlayback(from viewController: UIViewController, track: AudioTrack) {
-        guard let url = URL(string: track.preview_url ?? "") else { return }
+        guard let url = URL(string: track.preview_url ?? "") else {return }
         player = AVPlayer(url: url)
-        player?.volume = 0.0
+        player?.volume = 0.1
         self.track = track
         self.tracks = []
         let vc = PlayerViewController()
@@ -51,7 +51,7 @@ final class PlayBackPresenter {
             }
             return nil
         })
-        self.playerQueue?.volume = 0
+        self.playerQueue?.volume = 0.1
         self.playerQueue?.play()
         
         let vc = PlayerViewController()
